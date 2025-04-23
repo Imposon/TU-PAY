@@ -1,12 +1,15 @@
-import { useState } from 'react';
+// login.jsx
+import { useState, useEffect } from 'react';
 import './login.css';
 
-const Login = () => {
+
+const Login = ({ onLoginSuccess }) => {
   const [action, setAction] = useState('signup');
+  const [bgColor, setBgColor] = useState('#8e44ad');
   const [signupData, setSignupData] = useState({
     name: '',
     email: '',
-    cardNumber: '',
+    card: '',
     cvv: '',
     password: ''
   });
@@ -14,33 +17,49 @@ const Login = () => {
     email: '',
     password: ''
   });
-  const [error, setError] = useState('');
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    const colors = ['#8e44ad', '#3498db', '#e74c3c', '#2ecc71', '#f39c12'];
+    let index = 0;
+    const interval = setInterval(() => {
+      index = (index + 1) % colors.length;
+      setBgColor(colors[index]);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
-    // Check if all fields are filled
-    if (Object.values(signupData).every(value => value !== '')) {
-      setAction('login'); // Switch to login page
-      setError(''); // Clear any previous errors
-    } else {
-      setError('Please fill out all the fields');
-    }
+  const handleSignupChange = (e) => {
+    setSignupData({ ...signupData, [e.target.name]: e.target.value });
   };
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
+  const handleLoginChange = (e) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
 
-    // Check if login credentials match
-    if (loginData.email === signupData.email && loginData.password === signupData.password) {
-      alert('Login successful');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (action === 'signup') {
+      if (Object.values(signupData).some(val => val === '')) {
+        alert('Please fill in all fields.');
+      } else {
+        alert('Signed up successfully! Now login.');
+        setAction('login');
+      }
     } else {
-      setError('Sorry, try again');
+      if (
+        loginData.email === signupData.email &&
+        loginData.password === signupData.password
+      ) {
+        alert('Congratulations! 50000 points have been credited in your demo account.');
+        onLoginSuccess();
+      } else {
+        alert('Sorry, try again.');
+      }
     }
   };
 
   return (
-    <div className="app">
+    <div className="app" style={{ background: `linear-gradient(135deg, ${bgColor}, #ffffff)` }}>
       <div className="form-container">
         <div className="toggle-buttons">
           <button
@@ -56,100 +75,43 @@ const Login = () => {
             Login
           </button>
         </div>
-
-        {error && <div className="error">{error}</div>}
-
-        <form
-          className="form"
-          onSubmit={action === 'signup' ? handleSignupSubmit : handleLoginSubmit}
-        >
+        <form className="form" onSubmit={handleSubmit}>
           {action === 'signup' && (
             <>
               <div className="input-group">
                 <label>Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  value={signupData.name}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, name: e.target.value })
-                  }
-                />
+                <input name="name" type="text" placeholder="Enter your name" onChange={handleSignupChange} />
               </div>
               <div className="input-group">
                 <label>Email</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={signupData.email}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, email: e.target.value })
-                  }
-                />
+                <input name="email" type="email" placeholder="Enter your email" onChange={handleSignupChange} />
               </div>
               <div className="input-group">
                 <label>Card Number</label>
-                <input
-                  type="text"
-                  placeholder="Enter your card number"
-                  value={signupData.cardNumber}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, cardNumber: e.target.value })
-                  }
-                />
+                <input name="card" type="text" placeholder="Enter your card number" onChange={handleSignupChange} />
               </div>
               <div className="input-group">
                 <label>CVV</label>
-                <input
-                  type="text"
-                  placeholder="Enter your CVV"
-                  value={signupData.cvv}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, cvv: e.target.value })
-                  }
-                />
+                <input name="cvv" type="text" placeholder="Enter your CVV" onChange={handleSignupChange} />
               </div>
               <div className="input-group">
                 <label>Password</label>
-                <input
-                  type="password"
-                  placeholder="Enter your password"
-                  value={signupData.password}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, password: e.target.value })
-                  }
-                />
+                <input name="password" type="password" placeholder="Enter your password" onChange={handleSignupChange} />
               </div>
             </>
           )}
-
           {action === 'login' && (
             <>
               <div className="input-group">
                 <label>Email</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={loginData.email}
-                  onChange={(e) =>
-                    setLoginData({ ...loginData, email: e.target.value })
-                  }
-                />
+                <input name="email" type="email" placeholder="Enter your email" onChange={handleLoginChange} />
               </div>
               <div className="input-group">
                 <label>Password</label>
-                <input
-                  type="password"
-                  placeholder="Enter your password"
-                  value={loginData.password}
-                  onChange={(e) =>
-                    setLoginData({ ...loginData, password: e.target.value })
-                  }
-                />
+                <input name="password" type="password" placeholder="Enter your password" onChange={handleLoginChange} />
               </div>
             </>
           )}
-
           <button type="submit" className="submit-btn">
             {action === 'signup' ? 'Sign Up' : 'Login'}
           </button>
