@@ -1,0 +1,155 @@
+/* mainpage.css */
+
+.mainpage-container {
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+    min-height: 100vh;
+    color: #0d47a1;
+    transition: background 0.5s ease-in-out;
+  }
+  
+  .main-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .main-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .main-header p {
+    font-size: 1.2rem;
+    color: #1565c0;
+  }
+  
+  .banking-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+  
+  .option-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .option-icon {
+    font-size: 2.5rem;
+    color: #0288d1;
+    margin-bottom: 1rem;
+  }
+  
+  .option-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .option-card p {
+    font-size: 1rem;
+    color: #455a64;
+  }
+  
+  .credit-section {
+    margin-top: 4rem;
+    padding: 2rem;
+  }
+  
+  .credit-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #0d47a1;
+  }
+  
+  .credit-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .credit-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .credit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .credit-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #0288d1;
+  }
+  
+  .credit-card p {
+    font-size: 1rem;
+    color: #455a64;
+  }
+  
+  @media (max-width: 600px) {
+    .main-header h1 {
+      font-size: 2rem;
+    }
+  
+    .main-header p {
+      font-size: 1rem;
+    }
+  
+    .option-card h3,
+    .credit-card h3 {
+      font-size: 1.2rem;
+    }
+  
+    .option-card p,
+    .credit-card p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: #78909c;
+    font-size: 0.9rem;
+  }
+  .logo-image {
+    width: 300px;  /* Set a specific width */
+    height: 170px;  /* Set a specific height */
+    position: relative;
+    top: 20px;
+    left: 20px;
+    border-radius: 10px; /* Optional: to make corners rounded */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+  }
+  
+  
+  

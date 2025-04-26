@@ -1,0 +1,103 @@
+/* bank.css */
+.bank-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 20px;
+    background-color: #90c1cb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .bank-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .bank-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .bank-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .bank-form button {
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .bank-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .transaction-history {
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  .transaction-history h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .transaction-history th,
+  .transaction-history td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .transaction-history th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+  }
+  
+  .transaction-history tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .transaction-history tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .logo-image {
+    width: 50px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  

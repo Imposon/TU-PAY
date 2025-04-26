@@ -1,0 +1,57 @@
+.balance-container {
+    background: linear-gradient(to bottom right, #e0f7fa, #fff);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .balance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .balance-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .balance-text {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 60px;
+  }
+  
+  .transaction-history {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .transaction-history h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #0077cc;
+    color: white;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
